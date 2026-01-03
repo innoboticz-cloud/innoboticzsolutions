@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INNOBOTICZ SOLUTIONS | Advanced AI & IoT</title>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #192864;
+            --secondary: #30c9e8;
+            --dark: #0a1128;
+            --glass: rgba(255, 255, 255, 0.1);
+            --neon-green: #08d257;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #fbfbfb;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* --- Advanced Background Animation --- */
+        .bg-animate {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(45deg, #f3f4f7, #ffffff);
+            z-index: -1;
+        }
+
+        /* --- Modern Navigation --- */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--primary);
+            text-decoration: none;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li { margin-left: 35px; position: relative; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute; width: 0; height: 2px;
+            bottom: -5px; left: 0; background: var(--secondary);
+            transition: 0.3s;
+        }
+        .nav-links li:hover a::after { width: 100%; }
+
+        /* --- Hero Section with Animated Reveal --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: var(--dark);
+            color: white;
+            padding: 0 10%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(48,201,232,0.1) 0%, transparent 60%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            z-index: 1;
+        }
+
+        .hero h1 span { color: var(--neon-green); }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 700px;
+            opacity: 0.8;
+            margin-bottom: 40px;
+            z-index: 1;
+        }
+
+        .btn-modern {
+            padding: 15px 40px;
+            background: var(--secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: 0.4s;
+            z-index: 1;
+            box-shadow: 0 10px 20px rgba(48,201,232,0.3);
+        }
+
+        .btn-modern:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 15px 30px rgba(48,201,232,0.5);
+            background: white;
+            color: var(--primary);
+        }
+
+        /* --- Service Cards with 3D Effect --- */
+        .services { padding: 100px 10%; text-align: center; }
+        .section-tag { color: var(--secondary); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; }
+        .section-title { font-size: 2.5rem; margin: 10px 0 60px; color: var(--primary); }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 50px 30px;
+            border-radius: 20px;
+            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid #eee;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+        }
+
+        .card i {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            transition: 0.3s;
+        }
+
+        .card:hover i { color: var(--secondary); transform: scale(1.1); }
+
+        /* --- Stats Floating Animation --- */
+        .stats {
+            background: var(--primary);
+            padding: 80px 10%;
+            display: flex;
+            justify-content: space-around;
+            color: white;
+            flex-wrap: wrap;
+        }
+
+        .stat-item h2 { font-size: 3rem; margin-bottom: 5px; }
+        .stat-item p { opacity: 0.7; font-weight: 500; }
+
+        /* --- Footer --- */
+        footer {
+            background: #050a18;
+            color: white;
+            padding: 80px 10% 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+        }
+
+        .footer-logo { font-size: 1.8rem; font-weight: 900; margin-bottom: 20px; display: block; }
+        
+        .social-icons a {
+            font-size: 1.5rem;
+            color: white;
+            margin-right: 20px;
+            transition: 0.3s;
+        }
+        .social-icons a:hover { color: var(--secondary); }
+
+        /* Mobile View */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            nav { padding: 15px 5%; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-animate"></div>
+
+    <nav>
+        <a href="#" class="logo">INNOBOTICZ</a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Solutions</a></li>
+            <li><a href="#about">Research</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <h1 data-aos="zoom-out" data-aos-duration="1200">
+            ENGINEERING <span>INNOVATION.</span><br>BEYOND LIMITS.
+        </h1>
+        <p data-aos="fade-up" data-aos-delay="300">
+            Advanced IoT research and industrial automation solutions by INNOBOTICZ SOLUTIONS. 
+            We build the future of connected technology.
+        </p>
+        <a href="#services" class="btn-modern" data-aos="fade-up" data-aos-delay="500">EXPLORE TECH</a>
+    </section>
+
+    <section class="services" id="services">
+        <p class="section-tag" data-aos="fade-right">Our Expertise</p>
+        <h2 class="section-title" data-aos="fade-right" data-aos-delay="200">Advanced R&D Solutions</h2>
+        
+        <div class="grid">
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-brain"></i>
+                <h3>AI & Research</h3>
+                <p>Developing intelligent algorithms and deep-tech research for complex industrial challenges.</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="300">
+                <i class="fas fa-microchip"></i>
+                <h3>IoT Ecosystems</h3>
+                <p>End-to-end LoRaWAN and industrial IoT integration for smart city and agricultural projects.</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="500">
+                <i class="fas fa-rocket"></i>
+                <h3>Rapid Prototyping</h3>
+                <p>From abstract concept to absolute engineering. In-house manufacturing and fabrication.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stat-item" data-aos="flip-left">
+            <h2 class="counter">1300</h2>
+            <p>GLOBAL CLIENTS</p>
+        </div>
+        <div class="stat-item" data-aos="flip-left" data-aos-delay="200">
+            <h2 class="counter">20000</h2>
+            <p>DEVICES ACTIVE</p>
+        </div>
+        <div class="stat-item" data-aos="flip-left" data-aos-delay="400">
+            <h2 class="counter">500</h2>
+            <p>ACADEMIC PARTNERS</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-box">
+                <span class="footer-logo">INNOBOTICZ SOLUTIONS</span>
+                <p>Leading the digital transformation with high-performance engineering and sustainable IoT solutions.</p>
+                <div class="social-icons" style="margin-top: 20px;">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-box">
+                <h3>Global HQ</h3>
+                <p>Plot No: 32, P.M.R Layout,<br>
+                Goldwins, Coimbatore - 641014,<br>
+                Tamil Nadu, India.</p>
+                <p>Email: contact@innobotycz.in</p>
+            </div>
+            <div class="footer-box">
+                <h3>Tech Stack</h3>
+                <ul style="list-style: none; opacity: 0.7;">
+                    <li>LoRaWAN Solutions</li>
+                    <li>Embedded Development</li>
+                    <li>Industrial Automation</li>
+                    <li>Deep-Tech Research</li>
+                </ul>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 60px; opacity: 0.5; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+            &copy; 2026 INNOBOTICZ SOLUTIONS India Pvt Ltd. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS (Animate on Scroll)
+        AOS.init({
+            duration: 1000,
+            once: true,
+            easing: 'ease-in-out'
+        });
+
+        // Simple Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.innerText;
+                const count = +counter.getAttribute('data-count') || 0;
+                const speed = 200; 
+                const inc = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    counter.setAttribute('data-count', count + inc);
+                    setTimeout(updateCount, 10);
+                } else {
+                    counter.innerText = target + "+";
+                }
+            };
+            
+            // Trigger when visible
+            window.addEventListener('scroll', function callback() {
+                const pos = counter.getBoundingClientRect().top;
+                if(pos < window.innerHeight) {
+                    updateCount();
+                    window.removeEventListener('scroll', callback);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
